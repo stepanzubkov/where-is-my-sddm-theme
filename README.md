@@ -13,7 +13,7 @@ The most minimalistic SDDM theme among all themes. Only black screen and passwor
 # Installation
 
 ## From KDE store
-You can find product page on [pling]()
+You can find product page on [pling](https://www.pling.com/p/2011322/)
 ### On KDE
 1. Open System settings
 2. Choose Start and finish/Log in (SDDM)
@@ -24,7 +24,7 @@ You can find product page on [pling]()
 
 
 ### On other DEs/WMs
-1. Open [link]()
+1. Open [link](https://www.pling.com/p/2011322/)
 2. Click on "Install"
 3. Unzip downloaded archive
 4. Copy given folder to /usr/share/sddm/themes (`sudo cp -r where_is_my_sddm_theme/ /usr/share/sddm/themes`)
