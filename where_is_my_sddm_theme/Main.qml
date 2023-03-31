@@ -14,12 +14,12 @@ Rectangle {
     Connections {
         target: sddm
         function onLoginFailed() {
-            errorBorder.visible = true;
-            animateBorder.start();
-            passwordInput.text = "";
+            background.border.width = 5;
+            animateBorder.restart();
+            passwordInput.clear();
         }
         function onLoginSucceeded() {
-            errorBorder.visible = false;
+            background.border.width = 0;
             animateBorder.stop();
         }
     }
@@ -34,13 +34,24 @@ Rectangle {
 
         Rectangle {
             id: background
+            visible: true
+            color: bgColor
             anchors.fill: parent
-            color: "#000000"
+            border.color: "#ff3117"
+            border.width: 0
+            Behavior on border.width {
+                SequentialAnimation {
+                    id: animateBorder
+                    running: false
+                    loops: Animation.Infinite
+                    NumberAnimation { from: 5; to: 10; duration: 700 }
+                    NumberAnimation { from: 10; to: 5;  duration: 400 }
+                }
+            }
         }
 
         TextInput {
             id: passwordInput
-
             width: parent.width/2
             height: 200
             font.pointSize: 72
@@ -59,8 +70,9 @@ Rectangle {
             verticalAlignment: TextInput.AlignVCenter
             passwordCharacter: config.passwordCharacter || "*"
             onAccepted: {
-                sddm.login(userModel.lastUser || "123test", text, sessionModel.lastIndex || 0);
-                sddm.loginFailed();
+                if (text != "") {
+                    sddm.login(userModel.lastUser || "123test", text, sessionModel.lastIndex || 0);
+                }
             }
             cursorDelegate: Rectangle {
                 id: passwordInputCursor
@@ -118,8 +130,8 @@ Rectangle {
                     source: passwordInputCursor
                     anchors.fill: passwordInputCursor
                     color: passwordInputCursor.color
-                    samples: 8
-                    radius: 10
+                    samples: 9
+                    radius: 4
                 }
             }
         }
@@ -127,26 +139,5 @@ Rectangle {
             passwordInput.forceActiveFocus();
         }
 
-        Rectangle {
-            id: errorBorder
-            visible: false
-            color: "transparent"
-            anchors.fill: parent
-            border.color: "#ff3117"
-            border.width: 5
-            NumberAnimation {
-                id: animateBorder
-                target: errorBorder
-                properties: "border.width"
-                duration: 1500
-                from: 5
-                to: 10
-                loops: Animation.Infinite
-                easing {
-                    type: Easing.InOutBack
-                    amplitude: 2.0
-                }
-           }
-        }
     }
 }
