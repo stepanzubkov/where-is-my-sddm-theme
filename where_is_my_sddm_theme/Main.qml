@@ -48,6 +48,19 @@ Rectangle {
                     NumberAnimation { from: 10; to: 5;  duration: 400 }
                 }
             }
+
+        Image {
+            id: image
+            anchors.fill: parent
+            source: config.background
+            fillMode: Image.PreserveAspectCrop
+          }
+
+        Rectangle {
+            id: rectangle
+            anchors.fill: parent
+            color: config.backgroundFill
+          }
         }
 
         TextInput {
@@ -141,3 +154,4 @@ Rectangle {
 
     }
 }
+

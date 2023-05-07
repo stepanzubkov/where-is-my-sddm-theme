@@ -40,7 +40,9 @@ In `theme.conf` file you can find theme configuration.
 
 Awailable settings:
 
-**passwordCharacter** - Character, that used for password security mask.
+**passwordCharacter** - Character, that used for password security mask. <br>
+**background** - Background, used for wallpaper (optional). <br>
+**backgroundFill** - Background Layer, used for layering the background. <br>
 
 
 # Contributions
