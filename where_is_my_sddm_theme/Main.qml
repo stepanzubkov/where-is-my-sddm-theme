@@ -35,7 +35,6 @@ Rectangle {
         Rectangle {
             id: background
             visible: true
-            color: bgColor
             anchors.fill: parent
             border.color: "#ff3117"
             border.width: 0
@@ -49,18 +48,18 @@ Rectangle {
                 }
             }
 
-        Image {
-            id: image
-            anchors.fill: parent
-            source: config.background
-            fillMode: Image.PreserveAspectCrop
-          }
+            Image {
+                id: image
+                anchors.fill: parent
+                source: config.background
+                fillMode: Image.PreserveAspectCrop
+              }
 
-        Rectangle {
-            id: rectangle
-            anchors.fill: parent
-            color: config.backgroundFill
-          }
+            Rectangle {
+                id: rectangle
+                anchors.fill: parent
+                color: config.backgroundFill || "transparent"
+            }
         }
 
         TextInput {
