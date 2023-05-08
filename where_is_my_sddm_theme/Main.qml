@@ -9,7 +9,6 @@ Rectangle {
     height: 480
 
     readonly property color textColor: "#ffffff"
-    readonly property color bgColor: "#000000"
 
     Connections {
         target: sddm
