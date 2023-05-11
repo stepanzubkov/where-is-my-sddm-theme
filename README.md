@@ -7,7 +7,11 @@ The most minimalistic SDDM theme among all themes. Only black screen and passwor
 
 *Take a look*
 
+- With default black background
 ![screenshot](https://github.com/stepanzubkov/where-is-my-sddm-theme/blob/main/where_is_my_sddm_theme/screenshot.png?raw=true)
+
+- With image background
+![Screenshot_20230511_211739](https://github.com/raihanadf/where-is-my-sddm/assets/83695097/36880c07-c4d2-4056-b3b3-243b4043f475)
 
 
 # Installation
