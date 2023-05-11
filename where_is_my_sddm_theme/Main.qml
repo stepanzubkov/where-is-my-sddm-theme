@@ -9,7 +9,6 @@ Rectangle {
     height: 480
 
     readonly property color textColor: "#ffffff"
-    readonly property color bgColor: "#000000"
 
     Connections {
         target: sddm
@@ -35,7 +34,6 @@ Rectangle {
         Rectangle {
             id: background
             visible: true
-            color: bgColor
             anchors.fill: parent
             border.color: "#ff3117"
             border.width: 0
@@ -47,6 +45,19 @@ Rectangle {
                     NumberAnimation { from: 5; to: 10; duration: 700 }
                     NumberAnimation { from: 10; to: 5;  duration: 400 }
                 }
+            }
+
+            Image {
+                id: image
+                anchors.fill: parent
+                source: config.background
+                fillMode: Image.PreserveAspectCrop
+              }
+
+            Rectangle {
+                id: rectangle
+                anchors.fill: parent
+                color: config.backgroundFill || "transparent"
             }
         }
 
@@ -141,3 +152,4 @@ Rectangle {
 
     }
 }
+
