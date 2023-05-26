@@ -52,6 +52,7 @@ Rectangle {
                 anchors.fill: parent
                 source: config.background
                 fillMode: Image.PreserveAspectCrop
+                z: 2
               }
 
             Rectangle {
