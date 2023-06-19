@@ -1,4 +1,4 @@
-import QtQuick 2.7
+import QtQuick 2.15
 import QtQuick.Controls 2.0
 import QtGraphicalEffects 1.0
 import SddmComponents 2.0
@@ -9,6 +9,11 @@ Rectangle {
     height: 480
 
     readonly property color textColor: "#ffffff"
+    property int currentUsersIndex: userModel.lastIndex
+    property int usernameRole: Qt.UserRole + 1
+    property int realNameRole: Qt.UserRole + 2
+    property string currentUsername: userModel.data(userModel.index(currentUsersIndex, 0), realNameRole) ||
+                                     userModel.data(userModel.index(currentUsersIndex, 0), usernameRole)
 
     Connections {
         target: sddm
@@ -30,6 +35,20 @@ Rectangle {
         y: geometry.y
         width: geometry.width
         height: geometry.height
+        Shortcut {
+            sequences: ["Alt+U", "F2"]
+            onActivated: {
+                if (!username.visible) {
+                    username.visible = true;
+                    return;
+                }
+                if (currentUsersIndex >= userModel.count - 1) {
+                    currentUsersIndex = 0;
+                } else {
+                    currentUsersIndex++;
+                }
+            }
+        }
 
         Rectangle {
             id: background
@@ -76,7 +95,7 @@ Rectangle {
             echoMode: TextInput.Password
             color: textColor
             selectionColor: textColor
-            selectedTextColor: bgColor
+            selectedTextColor: "#000000"
             clip: true
             horizontalAlignment: TextInput.AlignHCenter
             verticalAlignment: TextInput.AlignVCenter
@@ -145,6 +164,21 @@ Rectangle {
                     samples: 9
                     radius: 4
                 }
+            }
+        }
+
+        Text {
+            id: username
+            visible: false
+            width: root.width/2.5
+            font.pointSize: 48
+            font.family: "monospace"
+            color: textColor
+            text: currentUsername
+            anchors {
+                horizontalCenter: parent.horizontalCenter
+                bottom: passwordInput.top
+                bottomMargin: 30
             }
         }
         Component.onCompleted: {
