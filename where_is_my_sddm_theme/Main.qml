@@ -61,6 +61,16 @@ Rectangle {
                 usersCycleSelectNext();
             }
         }
+        Shortcut {
+            sequences: ["Alt+Ctrl+U", "Ctrl+F2"]
+            onActivated: {
+                if (!username.visible) {
+                    username.visible = true;
+                    return;
+                }
+                usersCycleSelectPrev();
+            }
+        }
 
         Rectangle {
             id: background
