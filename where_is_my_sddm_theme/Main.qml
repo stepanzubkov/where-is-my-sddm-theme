@@ -15,6 +15,22 @@ Rectangle {
     property string currentUsername: userModel.data(userModel.index(currentUsersIndex, 0), realNameRole) ||
                                      userModel.data(userModel.index(currentUsersIndex, 0), usernameRole)
 
+    function usersCycleSelectPrev() {
+        if (currentUsersIndex - 1 < 0) {
+            currentUsersIndex = userModel.count - 1;
+        } else {
+            currentUsersIndex--;
+        }
+    }
+
+    function usersCycleSelectNext() {
+        if (currentUsersIndex >= userModel.count - 1) {
+            currentUsersIndex = 0;
+        } else {
+            currentUsersIndex++;
+        }
+    }
+
     Connections {
         target: sddm
         function onLoginFailed() {
@@ -42,11 +58,7 @@ Rectangle {
                     username.visible = true;
                     return;
                 }
-                if (currentUsersIndex >= userModel.count - 1) {
-                    currentUsersIndex = 0;
-                } else {
-                    currentUsersIndex++;
-                }
+                usersCycleSelectNext();
             }
         }
 
@@ -152,7 +164,7 @@ Rectangle {
                     target: passwordInput
                     function onTextEdited() {
                         passwordInputCursor.color = generateUniqueColorForChar(
-                            passwordInput.text[passwordInput.text.length - 1] || "\x00", userModel.lastUser || "123test",
+                            passwordInput.text[passwordInput.text.length - 1] || "\x00", currentUsername || "123test",
                         );
                         changeCursorColor.restart();
                     }
@@ -166,21 +178,24 @@ Rectangle {
                 }
             }
         }
-
-        Text {
+        UsersChoose {
             id: username
-            visible: false
-            width: root.width/2.5
-            font.pointSize: 48
-            font.family: "monospace"
-            color: textColor
             text: currentUsername
+            visible: false
+            width: mainFrame.width/2.5
             anchors {
                 horizontalCenter: parent.horizontalCenter
                 bottom: passwordInput.top
-                bottomMargin: 30
+                bottomMargin: 40
+            }
+            onPrevClicked: {
+                usersCycleSelectPrev();
+            }
+            onNextClicked: {
+                usersCycleSelectNext();
             }
         }
+
         Component.onCompleted: {
             passwordInput.forceActiveFocus();
         }
