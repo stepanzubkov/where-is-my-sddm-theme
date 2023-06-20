@@ -13,6 +13,12 @@ The most minimalistic SDDM theme among all themes. Only black screen and passwor
 - With image background
 ![Screenshot_20230511_211739](https://github.com/raihanadf/where-is-my-sddm/assets/83695097/36880c07-c4d2-4056-b3b3-243b4043f475)
 
+# Keymaps
+
+`F2` or `Alt+u` - cycle select next user
+
+`Ctrl+F2` or `Alt+Ctrl+F2` - cycle select prev user
+
 
 # Installation
 
