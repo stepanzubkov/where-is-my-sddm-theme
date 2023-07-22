@@ -31,6 +31,24 @@ Rectangle {
         }
     }
 
+    function bgFillMode() {
+        switch(config.backgroundMode)
+        {
+            case "aspect":
+                return Image.PreserveAspectCrop;
+
+            case "fill":
+                return Image.Stretch;
+
+            case "tile":
+                return Image.Tile;
+
+            default:
+                return Image.Pad;
+        }
+    }
+
+
     Connections {
         target: sddm
         function onLoginFailed() {
@@ -92,7 +110,7 @@ Rectangle {
                 id: image
                 anchors.fill: parent
                 source: config.background
-                fillMode: Image.PreserveAspectCrop
+                fillMode: bgFillMode()
                 z: 2
               }
 
