@@ -10,10 +10,13 @@ Rectangle {
 
     readonly property color textColor: "#ffffff"
     property int currentUsersIndex: userModel.lastIndex
+    property int currentSessionsIndex: sessionModel.lastIndex
     property int usernameRole: Qt.UserRole + 1
     property int realNameRole: Qt.UserRole + 2
+    property int sessionNameRole: Qt.UserRole + 4
     property string currentUsername: userModel.data(userModel.index(currentUsersIndex, 0), realNameRole) ||
                                      userModel.data(userModel.index(currentUsersIndex, 0), usernameRole)
+    property string currentSession: sessionModel.data(sessionModel.index(currentSessionsIndex, 0), sessionNameRole)
 
     function usersCycleSelectPrev() {
         if (currentUsersIndex - 1 < 0) {
@@ -48,6 +51,22 @@ Rectangle {
         }
     }
 
+    function sessionsCycleSelectPrev() {
+        if (currentSessionsIndex - 1 < 0) {
+            currentSessionsIndex = sessionModel.rowCount() - 1;
+        } else {
+            currentSessionsIndex--;
+        }
+    }
+
+    function sessionsCycleSelectNext() {
+        if (currentSessionsIndex >= sessionModel.rowCount() - 1) {
+            currentSessionsIndex = 0;
+        } else {
+            currentSessionsIndex++;
+        }
+    }
+
 
     Connections {
         target: sddm
@@ -77,6 +96,27 @@ Rectangle {
                     return;
                 }
                 usersCycleSelectNext();
+            }
+        }
+        Shortcut {
+            sequences: ["Alt+Ctrl+S", "Ctrl+F3"]
+            onActivated: {
+                if (!sessionName.visible) {
+                    sessionName.visible = true;
+                    return;
+                }
+                sessionsCycleSelectPrev();
+            }
+        }
+
+        Shortcut {
+            sequences: ["Alt+S", "F3"]
+            onActivated: {
+                if (!sessionName.visible) {
+                    sessionName.visible = true;
+                    return;
+                }
+                sessionsCycleSelectNext();
             }
         }
         Shortcut {
@@ -142,7 +182,7 @@ Rectangle {
             passwordCharacter: config.passwordCharacter || "*"
             onAccepted: {
                 if (text != "") {
-                    sddm.login(userModel.lastUser || "123test", text, sessionModel.lastIndex || 0);
+                    sddm.login(userModel.lastUser || "123test", text, currentSessionsIndex);
                 }
             }
             cursorDelegate: Rectangle {
@@ -221,6 +261,24 @@ Rectangle {
             }
             onNextClicked: {
                 usersCycleSelectNext();
+            }
+        }
+
+        SessionsChoose {
+            id: sessionName
+            text: currentSession
+            visible: false
+            width: mainFrame.width/2.5
+            anchors {
+                horizontalCenter: parent.horizontalCenter
+                bottom: parent.bottom
+                bottomMargin: 30
+            }
+            onPrevClicked: {
+                sessionsCycleSelectPrev();
+            }
+            onNextClicked: {
+                sessionsCycleSelectNext();
             }
         }
 

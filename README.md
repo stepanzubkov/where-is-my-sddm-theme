@@ -17,7 +17,7 @@ The most minimalistic SDDM theme among all themes. Only black screen and passwor
 
 `F2` or `Alt+u` - cycle select next user
 
-`Ctrl+F2` or `Alt+Ctrl+F2` - cycle select prev user
+`Ctrl+F2` or `Alt+Ctrl+u` - cycle select prev user
 
 
 # Installation
