@@ -53,6 +53,7 @@ Awailable settings:
 **passwordCharacter** - Character, that used for password security mask. <br>
 **background** - Background, used for wallpaper (optional). <br>
 **backgroundFill** - Background Layer, used for layering the background. <br>
+**backgroundMode** - One of *aspect*, *fill*, *tile*, *none*. <br>
 
 
 # Contributions

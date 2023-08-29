@@ -34,6 +34,23 @@ Rectangle {
         }
     }
 
+    function bgFillMode() {
+        switch(config.backgroundMode)
+        {
+            case "aspect":
+                return Image.PreserveAspectCrop;
+
+            case "fill":
+                return Image.Stretch;
+
+            case "tile":
+                return Image.Tile;
+
+            default:
+                return Image.Pad;
+        }
+    }
+
     function sessionsCycleSelectPrev() {
         if (currentSessionsIndex - 1 < 0) {
             currentSessionsIndex = sessionModel.rowCount() - 1;
@@ -49,6 +66,7 @@ Rectangle {
             currentSessionsIndex++;
         }
     }
+
 
     Connections {
         target: sddm
@@ -132,7 +150,7 @@ Rectangle {
                 id: image
                 anchors.fill: parent
                 source: config.background
-                fillMode: Image.PreserveAspectCrop
+                fillMode: bgFillMode()
                 z: 2
               }
 
