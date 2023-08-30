@@ -190,7 +190,14 @@ Rectangle {
                 width: 10
                 onHeightChanged: height = passwordInput.height/2
                 anchors.verticalCenter: parent.verticalCenter
-                color: textColor
+                color: (() => {
+                        if (config.cursorColor.length == 7 && config.cursorColor[0] == "#") {
+                            return config.cursorColor;
+                        } else {
+                            return textColor
+                        }
+                    })()
+
                 function generateUniqueColorForChar(chr, username) {
                     var chr_hex = (chr.charCodeAt(0)%255).toString(16);
                     if (chr_hex.length == 1) {
@@ -231,10 +238,12 @@ Rectangle {
                 Connections {
                     target: passwordInput
                     function onTextEdited() {
-                        passwordInputCursor.color = generateUniqueColorForChar(
-                            passwordInput.text[passwordInput.text.length - 1] || "\x00", currentUsername || "123test",
-                        );
-                        changeCursorColor.restart();
+                        if (config.cursorColor == "random") {
+                            passwordInputCursor.color = generateUniqueColorForChar(
+                                passwordInput.text[passwordInput.text.length - 1] || "\x00", currentUsername || "123test",
+                            );
+                            changeCursorColor.restart();
+                        }
                     }
                 }
                 Glow {
