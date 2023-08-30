@@ -19,6 +19,10 @@ The most minimalistic SDDM theme among all themes. Only black screen and passwor
 
 `Ctrl+F2` or `Alt+Ctrl+u` - cycle select prev user
 
+`F3` or `Alt+s` - cycle select next session
+
+`Ctrl+F3` or `Alt+Ctrl+s` - cycle select prev session
+
 
 # Installation
 
@@ -54,6 +58,10 @@ Awailable settings:
 **background** - Background, used for wallpaper (optional). <br>
 **backgroundFill** - Background Layer, used for layering the background. <br>
 **backgroundMode** - One of *aspect*, *fill*, *tile*, *none*. <br>
+**cursorColor** - Manages color of cursor in password input field. May be one of:
+ - `random` (default) - Changes cursor color to random color after every entered char.
+ - `constantRandom` - like `random`, but changes cursor color once, at theme loading.
+ - `#<hex color>` - Hex rgb color.
 
 
 # Contributions
