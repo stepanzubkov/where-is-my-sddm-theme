@@ -193,56 +193,30 @@ Rectangle {
                 color: (() => {
                         if (config.cursorColor.length == 7 && config.cursorColor[0] == "#") {
                             return config.cursorColor;
+                        } else if (config.cursorColor == "constantRandom") {
+                            return generateRandomColor();
                         } else {
                             return textColor
                         }
                     })()
 
-                function generateUniqueColorForChar(chr, username) {
-                    var chr_hex = (chr.charCodeAt(0)%255).toString(16);
-                    if (chr_hex.length == 1) {
-                        chr_hex = "0" + chr_hex;
+                function generateRandomColor() {
+                    var color = "#";
+                    for (var i = 0; i<3; i++) {
+                        var color_number = parseInt(Math.random()*255);
+                        var hex_color = color_number.toString(16);
+                        if (color_number < 16) {
+                            hex_color = "0" + hex_color;
+                        }
+                        color += hex_color;
                     }
-                    var green_num = username[0].charCodeAt(0) + username[1].charCodeAt(0);
-                    if (green_num > 255) {
-                        green_num = 255;
-                    }
-                    var green_hex = green_num.toString(16)
-                    if (green_hex.length == 1) {
-                        green_hex = "0" + green_hex;
-                    }
-                    var blue_num = (username[username.length - 1].charCodeAt(0) +
-                                username[username.length - 2].charCodeAt(0))
-                    if (blue_num > 255) {
-                        blue_num = 255;
-                    }
-                    var blue_hex = blue_num.toString(16)
-                    if (blue_hex.length == 1) {
-                        blue_hex = "0" + blue_hex;
-                    }
-                    var rgb = [chr_hex, green_hex, blue_hex];
-
-                    return ("#" + rgb[parseInt(Math.random()*3)]
-                                + rgb[parseInt(Math.random()*3)]
-                                + rgb[parseInt(Math.random()*3)]);
-
-                }
-                Timer {
-                    id: changeCursorColor
-                    repeat: false
-                    interval: 200
-                    onTriggered: {
-                        passwordInputCursor.color = textColor;
-                    }
+                    return color;
                 }
                 Connections {
                     target: passwordInput
                     function onTextEdited() {
                         if (config.cursorColor == "random") {
-                            passwordInputCursor.color = generateUniqueColorForChar(
-                                passwordInput.text[passwordInput.text.length - 1] || "\x00", currentUsername || "123test",
-                            );
-                            changeCursorColor.restart();
+                            passwordInputCursor.color = generateRandomColor();
                         }
                     }
                 }
