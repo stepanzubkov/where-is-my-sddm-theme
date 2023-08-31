@@ -133,7 +133,7 @@ Rectangle {
         Shortcut {
             sequence: "F10"
             onActivated: {
-                if (sddm.canSuspend()) {
+                if (sddm.canSuspend) {
                     sddm.suspend();
                 }
             }
@@ -141,7 +141,7 @@ Rectangle {
         Shortcut {
             sequence: "F11"
             onActivated: {
-                if (sddm.canPowerOff()) {
+                if (sddm.canPowerOff) {
                     sddm.powerOff();
                 }
             }
@@ -149,9 +149,16 @@ Rectangle {
         Shortcut {
             sequence: "F12"
             onActivated: {
-                if (sddm.canReboot()) {
+                if (sddm.canReboot) {
                     sddm.reboot();
                 }
+            }
+        }
+
+        Shortcut {
+            sequence: "F1"
+            onActivated: {
+                helpMessage.visible = !helpMessage.visible
             }
         }
 
@@ -288,6 +295,28 @@ Rectangle {
             }
             onNextClicked: {
                 sessionsCycleSelectNext();
+            }
+        }
+
+        Text {
+            id: helpMessage
+            visible: false
+            text: "Show help - F1\n" +
+                  "Cycle select next user - F2 or Alt+u\n" +
+                  "Cycle select previous user - Ctrl+F2 or Alt+Ctrl+u\n" +
+                  "Cycle select next session - F3 or Alt+s\n" +
+                  "Cycle select previous session - Ctrl+F3 or Alt+Ctrl+s\n" +
+                  "Suspend - F10\n" +
+                  "Poweroff - F11\n" +
+                  "Reboot - F12"
+            color: textColor
+            font.pointSize: 18
+            font.family: "monospace"
+            anchors {
+                top: parent.top
+                topMargin: 30
+                left: parent.left
+                leftMargin: 30
             }
         }
 
