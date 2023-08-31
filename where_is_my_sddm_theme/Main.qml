@@ -130,6 +130,32 @@ Rectangle {
             }
         }
 
+        Shortcut {
+            sequence: "F10"
+            onActivated: {
+                if (sddm.canSuspend()) {
+                    sddm.suspend();
+                }
+            }
+        }
+        Shortcut {
+            sequence: "F11"
+            onActivated: {
+                if (sddm.canPowerOff()) {
+                    sddm.powerOff();
+                }
+            }
+        }
+        Shortcut {
+            sequence: "F12"
+            onActivated: {
+                if (sddm.canReboot()) {
+                    sddm.reboot();
+                }
+            }
+        }
+
+
         Rectangle {
             id: background
             visible: true
@@ -152,7 +178,7 @@ Rectangle {
                 source: config.background
                 fillMode: bgFillMode()
                 z: 2
-              }
+            }
 
             Rectangle {
                 id: rectangle
