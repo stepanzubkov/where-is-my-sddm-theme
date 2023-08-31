@@ -23,6 +23,13 @@ The most minimalistic SDDM theme among all themes. Only black screen and passwor
 
 `Ctrl+F3` or `Alt+Ctrl+s` - cycle select prev session
 
+`F10` - Suspend.
+
+`F11` - Poweroff.
+
+`F12` - Reboout.
+
+`F1` - Show help message.
 
 # Installation
 
