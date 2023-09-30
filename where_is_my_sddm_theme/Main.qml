@@ -71,12 +71,12 @@ Rectangle {
     Connections {
         target: sddm
         function onLoginFailed() {
-            background.border.width = 5;
+            backgroundBorder.border.width = 5;
             animateBorder.restart();
             passwordInput.clear();
         }
         function onLoginSucceeded() {
-            background.border.width = 0;
+            backgroundBorder.border.width = 0;
             animateBorder.stop();
         }
     }
@@ -167,18 +167,7 @@ Rectangle {
             id: background
             visible: true
             anchors.fill: parent
-            border.color: "#ff3117"
-            border.width: 0
-            Behavior on border.width {
-                SequentialAnimation {
-                    id: animateBorder
-                    running: false
-                    loops: Animation.Infinite
-                    NumberAnimation { from: 5; to: 10; duration: 700 }
-                    NumberAnimation { from: 10; to: 5;  duration: 400 }
-                }
-            }
-
+            color: config.backgroundFill || "transparent"
             Image {
                 id: image
                 anchors.fill: parent
@@ -188,9 +177,21 @@ Rectangle {
             }
 
             Rectangle {
-                id: rectangle
+                id: backgroundBorder
                 anchors.fill: parent
-                color: config.backgroundFill || "transparent"
+                z: 3
+                border.color: "#ff3117"
+                border.width: 0
+                color: "transparent"
+                Behavior on border.width {
+                    SequentialAnimation {
+                        id: animateBorder
+                        running: false
+                        loops: Animation.Infinite
+                        NumberAnimation { from: 5; to: 10; duration: 700 }
+                        NumberAnimation { from: 10; to: 5;  duration: 400 }
+                    }
+                }
             }
         }
 
