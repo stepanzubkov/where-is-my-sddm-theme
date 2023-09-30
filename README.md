@@ -27,7 +27,7 @@ The most minimalistic SDDM theme among all themes. Only black screen and passwor
 
 `F11` - Poweroff.
 
-`F12` - Reboout.
+`F12` - Reboot.
 
 `F1` - Show help message.
 
