@@ -17,6 +17,10 @@ Rectangle {
     property string currentUsername: userModel.data(userModel.index(currentUsersIndex, 0), realNameRole) ||
                                      userModel.data(userModel.index(currentUsersIndex, 0), usernameRole)
     property string currentSession: sessionModel.data(sessionModel.index(currentSessionsIndex, 0), sessionNameRole)
+    property string passwordFontSize: config.passwordFontSize || 96
+    property string usersFontSize: config.usersFontSize || 48
+    property string sessionsFontSize: config.sessionsFontSize || 24
+
 
     function usersCycleSelectPrev() {
         if (currentUsersIndex - 1 < 0) {
@@ -198,10 +202,10 @@ Rectangle {
         TextInput {
             id: passwordInput
             width: parent.width/2
-            height: 200
-            font.pointSize: 72
+            height: 200/96*passwordFontSize
+            font.pointSize: passwordFontSize
             font.bold: true
-            font.letterSpacing: 20
+            font.letterSpacing: 20/96*passwordFontSize
             anchors {
                 verticalCenter: parent.verticalCenter
                 horizontalCenter: parent.horizontalCenter
@@ -221,7 +225,7 @@ Rectangle {
             }
             cursorDelegate: Rectangle {
                 id: passwordInputCursor
-                width: 10
+                width: 10/96*passwordFontSize
                 onHeightChanged: height = passwordInput.height/2
                 anchors.verticalCenter: parent.verticalCenter
                 color: (() => {
@@ -258,8 +262,8 @@ Rectangle {
                     source: passwordInputCursor
                     anchors.fill: passwordInputCursor
                     color: passwordInputCursor.color
-                    samples: 9
-                    radius: 4
+                    samples: 2*radius+1
+                    radius: 4/96*passwordFontSize
                 }
             }
         }
@@ -267,7 +271,7 @@ Rectangle {
             id: username
             text: currentUsername
             visible: false
-            width: mainFrame.width/2.5
+            width: mainFrame.width/2.5/48*usersFontSize
             anchors {
                 horizontalCenter: parent.horizontalCenter
                 bottom: passwordInput.top
@@ -285,7 +289,7 @@ Rectangle {
             id: sessionName
             text: currentSession
             visible: false
-            width: mainFrame.width/2.5
+            width: mainFrame.width/2.5/24*sessionsFontSize
             anchors {
                 horizontalCenter: parent.horizontalCenter
                 bottom: parent.bottom

@@ -6,7 +6,7 @@ Item {
     property string text: ""
     property string prevText: "<"
     property string nextText: ">"
-    property int fontPointSize: 24
+    property int fontPointSize: sessionsFontSize
     property string fontFamily: "monospace"
     signal prevClicked()
     signal nextClicked()
