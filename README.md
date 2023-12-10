@@ -69,6 +69,9 @@ Awailable settings:
  - `random` (default) - Changes cursor color to random color after every entered char.
  - `constantRandom` - like `random`, but changes cursor color once, at theme loading.
  - `#<hex color>` - Hex rgb color.
+ **passwordFontSize** - Font size for password input field
+ **usersFontSize** - Font size for users choose element.
+ **sessionsFontSize** - Font size for sessions choose element.
 
 
 # Contributions
