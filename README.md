@@ -33,6 +33,13 @@ The most minimalistic SDDM theme among all themes. Only black screen and passwor
 
 # Installation
 
+## With script
+
+This script is working only in kde now.
+
+Run `./install.sh` to install theme to sddm themes directory.
+Run `./install.sh current` to install theme and set it as current theme.
+
 ## From KDE store
 You can find product page on [pling](https://www.pling.com/p/2011322/)
 ### On KDE
@@ -42,7 +49,6 @@ You can find product page on [pling](https://www.pling.com/p/2011322/)
 4. Search "Where is my sddm theme?" theme
 5. Install
 6. Activate
-
 
 ### On other DEs/WMs
 1. Open [link](https://www.pling.com/p/2011322/)
