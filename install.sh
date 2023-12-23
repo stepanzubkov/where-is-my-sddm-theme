@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cp -vr where_is_my_sddm_theme/ /usr/share/sddm/themes/
+cp -r where_is_my_sddm_theme/ /usr/share/sddm/themes/
 echo "Successfully installed!"
 
 if [[ $1 == "current" ]]; then
