@@ -82,6 +82,11 @@ Awailable settings:
 **usersFontSize** - Font size for users choose element. <br>
 **sessionsFontSize** - Font size for sessions choose element.
 
+## Disable virtual keyboard
+
+You can disable virtual keyboard by setting line `InputMethod=qtvirtualkeyboard`
+to `InputMethod=` in sddm config file. SDDM config is located in `/etc/sddm.conf`
+(or `/etc/sddm.conf.d/kde_settings.conf`)
 
 # Contributions
 
