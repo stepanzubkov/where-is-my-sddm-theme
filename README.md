@@ -77,10 +77,16 @@ Awailable settings:
  - `random` (default) - Changes cursor color to random color after every entered char.
  - `constantRandom` - like `random`, but changes cursor color once, at theme loading.
  - `#<hex color>` - Hex rgb color.
- **passwordFontSize** - Font size for password input field
- **usersFontSize** - Font size for users choose element.
- **sessionsFontSize** - Font size for sessions choose element.
 
+**passwordFontSize** - Font size for password input field. <br>
+**usersFontSize** - Font size for users choose element. <br>
+**sessionsFontSize** - Font size for sessions choose element.
+
+## Disable virtual keyboard
+
+You can disable virtual keyboard by setting line `InputMethod=qtvirtualkeyboard`
+to `InputMethod=` in sddm config file. SDDM config is located in `/etc/sddm.conf`
+(or `/etc/sddm.conf.d/kde_settings.conf`)
 
 # Contributions
 

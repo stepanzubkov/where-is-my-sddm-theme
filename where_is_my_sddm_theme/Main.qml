@@ -224,7 +224,7 @@ Rectangle {
             }
             cursorDelegate: Rectangle {
                 id: passwordInputCursor
-                width: 10/96*passwordFontSize
+                width: 18/96*passwordFontSize
                 onHeightChanged: height = passwordInput.height/2
                 anchors.verticalCenter: parent.verticalCenter
                 color: (() => {
@@ -256,13 +256,6 @@ Rectangle {
                             passwordInputCursor.color = generateRandomColor();
                         }
                     }
-                }
-                Glow {
-                    source: passwordInputCursor
-                    anchors.fill: passwordInputCursor
-                    color: passwordInputCursor.color
-                    samples: 2*radius+1
-                    radius: 4/96*passwordFontSize
                 }
             }
         }
