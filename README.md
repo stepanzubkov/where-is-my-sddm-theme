@@ -3,7 +3,7 @@
 
 The most minimalistic SDDM theme among all themes. Only black screen and password input field. Nothing extra, right? Even when you enter wrong password theme will show only red border around your screen. To login, just press `<Enter>` key.
 
-**Warning:** This theme is completed. This is not raw version. Yes, this theme is strange. If you do not like this theme, pay attention to [other theme](https://github.com/stepanzubkov/sddm-zust)
+This theme properly works both with **Qt5** and **Qt6** (Plasma 5 and Plasma 6)
 
 *Take a look*
 
