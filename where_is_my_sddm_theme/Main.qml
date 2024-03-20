@@ -7,7 +7,7 @@ Rectangle {
     width: 640
     height: 480
 
-    readonly property color textColor: "#ffffff"
+    readonly property color textColor: config.basicTextColor || "#ffffff"
     property int currentUsersIndex: userModel.lastIndex
     property int currentSessionsIndex: sessionModel.lastIndex
     property int usernameRole: Qt.UserRole + 1
@@ -200,7 +200,7 @@ Rectangle {
 
         TextInput {
             id: passwordInput
-            width: parent.width/2
+            width: parent.width*(config.passwordInputWidth || 0.5)
             height: 200/96*passwordFontSize
             font.pointSize: passwordFontSize
             font.bold: true
@@ -209,7 +209,7 @@ Rectangle {
                 verticalCenter: parent.verticalCenter
                 horizontalCenter: parent.horizontalCenter
             }
-            echoMode: TextInput.Password
+            echoMode: config.passwordMask == "true" ? TextInput.Password : null
             color: textColor
             selectionColor: textColor
             selectedTextColor: "#000000"
@@ -221,6 +221,12 @@ Rectangle {
                 if (text != "") {
                     sddm.login(userModel.lastUser || "123test", text, currentSessionsIndex);
                 }
+            }
+            Rectangle {
+                z: -1
+                anchors.fill: parent
+                color: config.passwordInputBackground || "transparent"
+                radius: 10
             }
             cursorDelegate: Rectangle {
                 id: passwordInputCursor
