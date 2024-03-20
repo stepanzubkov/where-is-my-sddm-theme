@@ -210,7 +210,7 @@ Rectangle {
                 horizontalCenter: parent.horizontalCenter
             }
             echoMode: config.passwordMask == "true" ? TextInput.Password : null
-            color: textColor
+            color: config.passwordTextColor || textColor
             selectionColor: textColor
             selectedTextColor: "#000000"
             clip: true
@@ -234,9 +234,9 @@ Rectangle {
                 onHeightChanged: height = passwordInput.height/2
                 anchors.verticalCenter: parent.verticalCenter
                 color: (() => {
-                        if (config.cursorColor.length == 7 && config.cursorColor[0] == "#") {
-                            return config.cursorColor;
-                        } else if (config.cursorColor == "constantRandom") {
+                        if (config.passwordCursorColor.length == 7 && config.passwordCursorColor[0] == "#") {
+                            return config.passwordCursorColor;
+                        } else if (config.passwordCursorColor == "constantRandom") {
                             return generateRandomColor();
                         } else {
                             return textColor
@@ -258,7 +258,7 @@ Rectangle {
                 Connections {
                     target: passwordInput
                     function onTextEdited() {
-                        if (config.cursorColor == "random") {
+                        if (config.passwordCursorColor == "random") {
                             passwordInputCursor.color = generateRandomColor();
                         }
                     }

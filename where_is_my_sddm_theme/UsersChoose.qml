@@ -45,7 +45,7 @@ Item {
         id: nextButton
         text: root.nextText
         color: textColor
-        font.pointSize: 48
+        font.pointSize: root.fontPointSize
         font.family: "monospace"
         anchors {
             right: parent.right
