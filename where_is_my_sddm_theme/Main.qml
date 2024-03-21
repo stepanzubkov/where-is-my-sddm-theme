@@ -217,6 +217,7 @@ Rectangle {
             horizontalAlignment: TextInput.AlignHCenter
             verticalAlignment: TextInput.AlignVCenter
             passwordCharacter: config.passwordCharacter || "*"
+            cursorVisible: config.passwordInputCursorVisible == "true" ? true : false
             onAccepted: {
                 if (text != "") {
                     sddm.login(userModel.lastUser || "123test", text, currentSessionsIndex);
@@ -226,11 +227,12 @@ Rectangle {
                 z: -1
                 anchors.fill: parent
                 color: config.passwordInputBackground || "transparent"
-                radius: 10
+                radius: config.passwordInputRadius || 10
             }
             cursorDelegate: Rectangle {
                 id: passwordInputCursor
                 width: 18/96*passwordFontSize
+                visible: config.passwordInputCursorVisible == "true" ? true : false
                 onHeightChanged: height = passwordInput.height/2
                 anchors.verticalCenter: parent.verticalCenter
                 color: (() => {
