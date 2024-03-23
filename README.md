@@ -80,18 +80,39 @@ In `theme.conf` file you can find theme configuration.
 
 Awailable settings:
 
-**passwordCharacter** - Character, that used for password security mask. <br>
-**background** - Background, used for wallpaper (optional). <br>
-**backgroundFill** - Background Layer, used for layering the background. <br>
-**backgroundMode** - One of *aspect*, *fill*, *tile*, *none*. <br>
-**cursorColor** - Manages color of cursor in password input field. May be one of:
- - `random` (default) - Changes cursor color to random color after every entered char.
- - `constantRandom` - like `random`, but changes cursor color once, at theme loading.
- - `#<hex color>` - Hex rgb color.
+`passwordcharacter=*` - Password mask character
 
-**passwordFontSize** - Font size for password input field. <br>
-**usersFontSize** - Font size for users choose element. <br>
-**sessionsFontSize** - Font size for sessions choose element.
+`passwordMask=true` - Mask password characters or not ("true" or "false")
+
+`passwordInputWidth=0.5` - value "1" is all display width, "0.5" is a half of display width etc.
+
+`passwordInputBackground=` - Background color of password input
+
+`passwordInputRadius=` - Radius of password input corners
+
+`passwordInputCursorVisible=true` - "true" for visible cursor, "false"
+
+`passwordFontSize=96` - Font size of password (in points)
+
+`passwordCursorColor=random` - Color of password input cursor
+
+`passwordTextColor=` - Color of password input text
+
+`showSessionsByDefault=false` - Show or not sessions choose label
+
+`sessionsFontSize=24` - Font size of sessions choose label (in points).
+
+`showUsersByDefault=false` - Show or not users choose label
+
+`usersFontSize=48` - Font size of users choose label (in points)
+
+`background=` - Path to background image
+
+`backgroundFill=#000000` - Or use just one color
+
+`backgroundFillMode=aspect` - Qt fill mode for background image
+
+`basicTextColor=#ffffff` - Default text color for all labels
 
 ## Disable virtual keyboard
 
