@@ -1,17 +1,30 @@
 # Where is my SDDM theme?
 *:eyes: That feeling when your SDDM theme suddenly disappeared...*
 
-The most minimalistic SDDM theme among all themes. Only black screen and password input field. Nothing extra, right? Even when you enter wrong password theme will show only red border around your screen. To login, just press `<Enter>` key.
+The *most minimalistic* and *highly customizable* SDDM theme. Only black screen and password input field. Nothing extra, right? Even when you enter wrong password theme will show only red border around your screen. To login, just type your password and press `<Enter>` key.
 
 This theme properly works both with **Qt5** and **Qt6** (Plasma 5 and Plasma 6)
 
-*Take a look*
+# Examples of customization
+To install one of these configs, run inside theme directory:
+```shell
+cp <path to config> theme.conf
+```
+If config based on image background, also copy image. For example:
+```shell
+cp example_configurations/tree.conf theme.conf
+cp example_configurations/tree.png tree.png
+```
+| | |
+---|---
+Classic (`where_is_my_sddm_theme/theme.conf`) | Classic, no cursor (`where_is_my_sddm_theme/example_configurations/classic_nocursor.conf`)
+![screenshot](./where_is_my_sddm_theme/screenshot.png) | ![screenshot](./screenshots/classic_nocursor.png)
+Grey (`where_is_my_sddm_theme/example_configurations/grey.conf`) | Light grey (`where_is_my_sddm_theme/example_configurations/lightgrey.conf`)
+![screenshot](./screenshots/grey.png) | ![screenshot](./screenshots/lightgrey.png)
+Blue (`where_is_my_sddm_theme/example_configurations/blue.conf`) |  Tree (`where_is_my_sddm_theme/example_configurations/tree.conf`)
+![screenshot](./screenshots/blue.png) | ![screenshot](./screenshots/tree.png)
 
-- With default black background
-![screenshot](https://github.com/stepanzubkov/where-is-my-sddm-theme/blob/main/where_is_my_sddm_theme/screenshot.png?raw=true)
-
-- With image background
-![Screenshot_20230511_211739](https://github.com/raihanadf/where-is-my-sddm/assets/83695097/36880c07-c4d2-4056-b3b3-243b4043f475)
+If you have created an interesting configuration that might be useful to other people, please **share it via Pull Request!**
 
 # Keymaps
 
@@ -34,8 +47,6 @@ This theme properly works both with **Qt5** and **Qt6** (Plasma 5 and Plasma 6)
 # Installation
 
 ## With script
-
-This script is working only in kde now.
 
 This script should be run with **sudo**!
 
@@ -69,18 +80,39 @@ In `theme.conf` file you can find theme configuration.
 
 Awailable settings:
 
-**passwordCharacter** - Character, that used for password security mask. <br>
-**background** - Background, used for wallpaper (optional). <br>
-**backgroundFill** - Background Layer, used for layering the background. <br>
-**backgroundMode** - One of *aspect*, *fill*, *tile*, *none*. <br>
-**cursorColor** - Manages color of cursor in password input field. May be one of:
- - `random` (default) - Changes cursor color to random color after every entered char.
- - `constantRandom` - like `random`, but changes cursor color once, at theme loading.
- - `#<hex color>` - Hex rgb color.
+`passwordcharacter=*` - Password mask character
 
-**passwordFontSize** - Font size for password input field. <br>
-**usersFontSize** - Font size for users choose element. <br>
-**sessionsFontSize** - Font size for sessions choose element.
+`passwordMask=true` - Mask password characters or not ("true" or "false")
+
+`passwordInputWidth=0.5` - value "1" is all display width, "0.5" is a half of display width etc.
+
+`passwordInputBackground=` - Background color of password input
+
+`passwordInputRadius=` - Radius of password input corners
+
+`passwordInputCursorVisible=true` - "true" for visible cursor, "false"
+
+`passwordFontSize=96` - Font size of password (in points)
+
+`passwordCursorColor=random` - Color of password input cursor
+
+`passwordTextColor=` - Color of password input text
+
+`showSessionsByDefault=false` - Show or not sessions choose label
+
+`sessionsFontSize=24` - Font size of sessions choose label (in points).
+
+`showUsersByDefault=false` - Show or not users choose label
+
+`usersFontSize=48` - Font size of users choose label (in points)
+
+`background=` - Path to background image
+
+`backgroundFill=#000000` - Or use just one color
+
+`backgroundFillMode=aspect` - Qt fill mode for background image
+
+`basicTextColor=#ffffff` - Default text color for all labels
 
 ## Disable virtual keyboard
 

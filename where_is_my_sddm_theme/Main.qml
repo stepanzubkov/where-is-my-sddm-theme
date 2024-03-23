@@ -7,7 +7,7 @@ Rectangle {
     width: 640
     height: 480
 
-    readonly property color textColor: "#ffffff"
+    readonly property color textColor: config.basicTextColor || "#ffffff"
     property int currentUsersIndex: userModel.lastIndex
     property int currentSessionsIndex: sessionModel.lastIndex
     property int usernameRole: Qt.UserRole + 1
@@ -200,7 +200,7 @@ Rectangle {
 
         TextInput {
             id: passwordInput
-            width: parent.width/2
+            width: parent.width*(config.passwordInputWidth || 0.5)
             height: 200/96*passwordFontSize
             font.pointSize: passwordFontSize
             font.bold: true
@@ -209,28 +209,36 @@ Rectangle {
                 verticalCenter: parent.verticalCenter
                 horizontalCenter: parent.horizontalCenter
             }
-            echoMode: TextInput.Password
-            color: textColor
+            echoMode: config.passwordMask == "true" ? TextInput.Password : null
+            color: config.passwordTextColor || textColor
             selectionColor: textColor
             selectedTextColor: "#000000"
             clip: true
             horizontalAlignment: TextInput.AlignHCenter
             verticalAlignment: TextInput.AlignVCenter
             passwordCharacter: config.passwordCharacter || "*"
+            cursorVisible: config.passwordInputCursorVisible == "true" ? true : false
             onAccepted: {
                 if (text != "") {
                     sddm.login(userModel.lastUser || "123test", text, currentSessionsIndex);
                 }
             }
+            Rectangle {
+                z: -1
+                anchors.fill: parent
+                color: config.passwordInputBackground || "transparent"
+                radius: config.passwordInputRadius || 10
+            }
             cursorDelegate: Rectangle {
                 id: passwordInputCursor
                 width: 18/96*passwordFontSize
+                visible: config.passwordInputCursorVisible == "true" ? true : false
                 onHeightChanged: height = passwordInput.height/2
                 anchors.verticalCenter: parent.verticalCenter
                 color: (() => {
-                        if (config.cursorColor.length == 7 && config.cursorColor[0] == "#") {
-                            return config.cursorColor;
-                        } else if (config.cursorColor == "constantRandom") {
+                        if (config.passwordCursorColor.length == 7 && config.passwordCursorColor[0] == "#") {
+                            return config.passwordCursorColor;
+                        } else if (config.passwordCursorColor == "constantRandom") {
                             return generateRandomColor();
                         } else {
                             return textColor
@@ -252,7 +260,7 @@ Rectangle {
                 Connections {
                     target: passwordInput
                     function onTextEdited() {
-                        if (config.cursorColor == "random") {
+                        if (config.passwordCursorColor == "random") {
                             passwordInputCursor.color = generateRandomColor();
                         }
                     }
