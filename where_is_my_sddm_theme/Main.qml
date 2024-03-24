@@ -270,7 +270,7 @@ Rectangle {
         UsersChoose {
             id: username
             text: currentUsername
-            visible: false
+            visible: config.showUsersByDefault == "true" ? true : false
             width: mainFrame.width/2.5/48*usersFontSize
             anchors {
                 horizontalCenter: parent.horizontalCenter
@@ -288,7 +288,7 @@ Rectangle {
         SessionsChoose {
             id: sessionName
             text: currentSession
-            visible: false
+            visible: config.showSessionsByDefault == "true" ? true : false
             width: mainFrame.width/2.5/24*sessionsFontSize
             anchors {
                 horizontalCenter: parent.horizontalCenter
