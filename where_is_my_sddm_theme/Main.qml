@@ -1,5 +1,6 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.0
+import QtGraphicalEffects 1.12
 import SddmComponents 2.0
 
 Rectangle {
@@ -175,6 +176,7 @@ Rectangle {
                 id: image
                 anchors.fill: parent
                 source: config.background
+                smooth: true
                 fillMode: bgFillMode()
                 z: 2
             }
@@ -182,7 +184,7 @@ Rectangle {
             Rectangle {
                 id: backgroundBorder
                 anchors.fill: parent
-                z: 3
+                z: 4
                 border.color: "#ff3117"
                 border.width: 0
                 color: "transparent"
@@ -196,6 +198,15 @@ Rectangle {
                     }
                 }
             }
+
+            FastBlur {
+                id: fastBlur
+                z: 3
+                anchors.fill: image
+                source: image
+                radius: +config.blurRadius || 0
+            }
+
         }
 
         TextInput {

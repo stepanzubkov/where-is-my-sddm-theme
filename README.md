@@ -114,6 +114,8 @@ Awailable settings:
 
 `basicTextColor=#ffffff` - Default text color for all labels
 
+`blurRadius=` - Radius for background blur. A larger radius increases the blur effect.
+
 ## Disable virtual keyboard
 
 You can disable virtual keyboard by setting line `InputMethod=qtvirtualkeyboard`
