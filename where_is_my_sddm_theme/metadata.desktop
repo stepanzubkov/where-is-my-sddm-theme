@@ -12,3 +12,4 @@ ConfigFile=theme.conf
 TranslationsDirectory=translations
 Theme-Id=where-is-my-sddm-theme
 Theme-API=2.2
+QtVersion=6
