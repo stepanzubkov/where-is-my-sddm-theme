@@ -3,8 +3,6 @@
 
 The *most minimalistic* and *highly customizable* SDDM theme. Only black screen and password input field. Nothing extra, right? Even when you enter wrong password theme will show only red border around your screen. To login, just type your password and press `<Enter>` key.
 
-This theme properly works both with **Qt5** and **Qt6** (Plasma 5 and Plasma 6)
-
 # Examples of customization
 To install one of these configs, run inside theme directory:
 ```shell
@@ -52,6 +50,8 @@ This script should be run with **sudo**!
 
 Run `./install.sh` to install theme to sddm themes directory.
 Run `./install.sh current` to install theme and set it as current theme.
+
+For installing `qt5` theme, use `./install_qt5.sh` script.
 
 ## From KDE store
 You can find product page on [pling](https://www.pling.com/p/2011322/)

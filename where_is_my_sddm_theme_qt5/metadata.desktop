@@ -1,0 +1,14 @@
+[SddmGreeterTheme]
+Name=Where is my SDDM theme?
+Description=That feeling when your SDDM theme suddenly disappeared
+Screenshot=screenshot.png
+Website=https://github.com/stepanzubkov/where-is-my-sddm-theme
+Author=stepanzubkov
+Copyright=(c) 2023, stepanzubkov
+License=MIT
+Version=1.7.0
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=translations
+Theme-Id=where-is-my-sddm-theme
+Theme-API=2.2
