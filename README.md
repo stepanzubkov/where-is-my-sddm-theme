@@ -104,6 +104,8 @@ Awailable settings:
 
 `showUsersByDefault=false` - Show or not users choose label
 
+`showUserRealNameByDefault=true` - Show user real name on label by default
+
 `usersFontSize=48` - Font size of users choose label (in points)
 
 `background=` - Path to background image
