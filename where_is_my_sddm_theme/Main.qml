@@ -15,7 +15,7 @@ Rectangle {
     property int usernameRole: Qt.UserRole + 1
     property int realNameRole: Qt.UserRole + 2
     property int sessionNameRole: Qt.UserRole + 4
-    property string currentUsername: userModel.data(userModel.index(currentUsersIndex, 0), realNameRole) ||
+    property string currentUsername: (config.showUserRealNameByDefault=="true" && userModel.data(userModel.index(currentUsersIndex, 0), realNameRole)) ||
                                      userModel.data(userModel.index(currentUsersIndex, 0), usernameRole)
     property string currentSession: sessionModel.data(sessionModel.index(currentSessionsIndex, 0), sessionNameRole)
     property string passwordFontSize: config.passwordFontSize || 96
