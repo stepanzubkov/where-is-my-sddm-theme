@@ -232,7 +232,7 @@ Rectangle {
             cursorVisible: config.passwordInputCursorVisible == "true" ? true : false
             onAccepted: {
                 if (text != "") {
-                    sddm.login(userModel.lastUser || "123test", text, currentSessionsIndex);
+                    sddm.login(currentUsersIndex || "123test", text, currentSessionsIndex);
                 }
             }
             Rectangle {
