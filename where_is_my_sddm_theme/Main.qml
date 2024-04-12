@@ -302,7 +302,7 @@ Rectangle {
         SessionsChoose {
             id: sessionName
             text: currentSession
-            visible: config.stringValue("showSessionsByDefault")
+            visible: config.boolValue("showSessionsByDefault")
             width: mainFrame.width/2.5/24*sessionsFontSize
             anchors {
                 horizontalCenter: parent.horizontalCenter
