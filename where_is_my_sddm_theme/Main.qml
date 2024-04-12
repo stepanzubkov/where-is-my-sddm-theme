@@ -9,18 +9,19 @@ Rectangle {
     width: 640
     height: 480
 
-    readonly property color textColor: config.basicTextColor || "#ffffff"
+    readonly property color textColor: config.stringValue("basicTextColor")
     property int currentUsersIndex: userModel.lastIndex
     property int currentSessionsIndex: sessionModel.lastIndex
     property int usernameRole: Qt.UserRole + 1
     property int realNameRole: Qt.UserRole + 2
     property int sessionNameRole: Qt.UserRole + 4
-    property string currentUsername: (config.showUserRealNameByDefault=="true" && userModel.data(userModel.index(currentUsersIndex, 0), realNameRole)) ||
-                                     userModel.data(userModel.index(currentUsersIndex, 0), usernameRole)
+    property string currentUsername: config.boolValue("showUserRealNameByDefault") ?
+    userModel.data(userModel.index(currentUsersIndex, 0), realNameRole)
+    : userModel.data(userModel.index(currentUsersIndex, 0), usernameRole)
     property string currentSession: sessionModel.data(sessionModel.index(currentSessionsIndex, 0), sessionNameRole)
-    property string passwordFontSize: config.passwordFontSize || 96
-    property string usersFontSize: config.usersFontSize || 48
-    property string sessionsFontSize: config.sessionsFontSize || 24
+    property string passwordFontSize: config.intValue("passwordFontSize") || 96
+    property string usersFontSize: config.intValue("usersFontSize") || 48
+    property string sessionsFontSize: config.intValue("sessionsFontSize") || 24
 
 
     function usersCycleSelectPrev() {
@@ -40,7 +41,7 @@ Rectangle {
     }
 
     function bgFillMode() {
-        switch(config.backgroundMode)
+        switch(config.stringValue("backgroundMode"))
         {
             case "aspect":
                 return Image.PreserveAspectCrop;
@@ -172,11 +173,11 @@ Rectangle {
             id: background
             visible: true
             anchors.fill: parent
-            color: config.backgroundFill || "transparent"
+            color: config.stringValue("backgroundFill") || "transparent"
             Image {
                 id: image
                 anchors.fill: parent
-                source: config.background
+                source: config.stringValue("background")
                 smooth: true
                 fillMode: bgFillMode()
                 z: 2
@@ -205,14 +206,14 @@ Rectangle {
                 z: 3
                 anchors.fill: image
                 source: image
-                radius: +config.blurRadius || 0
+                radius: config.intValue("blurRadius")
             }
 
         }
 
         TextInput {
             id: passwordInput
-            width: parent.width*(config.passwordInputWidth || 0.5)
+            width: parent.width*(config.intValue("passwordInputWidth") || 0.5)
             height: 200/96*passwordFontSize
             font.pointSize: passwordFontSize
             font.bold: true
@@ -221,36 +222,37 @@ Rectangle {
                 verticalCenter: parent.verticalCenter
                 horizontalCenter: parent.horizontalCenter
             }
-            echoMode: config.passwordMask == "true" ? TextInput.Password : null
-            color: config.passwordTextColor || textColor
+            echoMode: config.boolValue("passwordMask") ? TextInput.Password : null
+            color: config.stringValue("passwordTextColor") || textColor
             selectionColor: textColor
             selectedTextColor: "#000000"
             clip: true
             horizontalAlignment: TextInput.AlignHCenter
             verticalAlignment: TextInput.AlignVCenter
-            passwordCharacter: config.passwordCharacter || "*"
-            cursorVisible: config.passwordInputCursorVisible == "true" ? true : false
+            passwordCharacter: config.stringValue("passwordCharacter") || "*"
+            cursorVisible: config.boolValue("passwordInputCursorVisible")
             onAccepted: {
                 if (text != "") {
-                    sddm.login(currentUsersIndex || "123test", text, currentSessionsIndex);
+                    sddm.login(userModel.data(userModel.index(currentUsersIndex, 0), usernameRole)
+ || "123test", text, currentSessionsIndex);
                 }
             }
             Rectangle {
                 z: -1
                 anchors.fill: parent
-                color: config.passwordInputBackground || "transparent"
-                radius: config.passwordInputRadius || 10
+                color: config.stringValue("passwordInputBackground") || "transparent"
+                radius: config.intValue("passwordInputRadius") || 10
             }
             cursorDelegate: Rectangle {
                 id: passwordInputCursor
                 width: 18/96*passwordFontSize
-                visible: config.passwordInputCursorVisible == "true" ? true : false
+                visible: config.boolValue("passwordInputCursorVisible")
                 onHeightChanged: height = passwordInput.height/2
                 anchors.verticalCenter: parent.verticalCenter
                 color: (() => {
-                        if (config.passwordCursorColor.length == 7 && config.passwordCursorColor[0] == "#") {
-                            return config.passwordCursorColor;
-                        } else if (config.passwordCursorColor == "constantRandom") {
+                        if (config.stringValue("passwordCursorColor").length == 7 && config.stringValue("passwordCursorColor")[0] == "#") {
+                            return config.stringValue("passwordCursorColor");
+                        } else if (config.stringValue("passwordCursorColor") == "constantRandom") {
                             return generateRandomColor();
                         } else {
                             return textColor
@@ -272,7 +274,7 @@ Rectangle {
                 Connections {
                     target: passwordInput
                     function onTextEdited() {
-                        if (config.passwordCursorColor == "random") {
+                        if (config.stringValue("passwordCursorColor") == "random") {
                             passwordInputCursor.color = generateRandomColor();
                         }
                     }
@@ -282,7 +284,7 @@ Rectangle {
         UsersChoose {
             id: username
             text: currentUsername
-            visible: config.showUsersByDefault == "true" ? true : false
+            visible: config.boolValue("showUsersByDefault")
             width: mainFrame.width/2.5/48*usersFontSize
             anchors {
                 horizontalCenter: parent.horizontalCenter
@@ -300,7 +302,7 @@ Rectangle {
         SessionsChoose {
             id: sessionName
             text: currentSession
-            visible: config.showSessionsByDefault == "true" ? true : false
+            visible: config.stringValue("showSessionsByDefault")
             width: mainFrame.width/2.5/24*sessionsFontSize
             anchors {
                 horizontalCenter: parent.horizontalCenter
