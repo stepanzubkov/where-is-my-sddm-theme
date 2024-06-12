@@ -213,7 +213,7 @@ Rectangle {
 
         TextInput {
             id: passwordInput
-            width: parent.width*(config.intValue("passwordInputWidth") || 0.5)
+            width: parent.width*(config.realValue("passwordInputWidth") || 0.5)
             height: 200/96*passwordFontSize
             font.pointSize: passwordFontSize
             font.bold: true
