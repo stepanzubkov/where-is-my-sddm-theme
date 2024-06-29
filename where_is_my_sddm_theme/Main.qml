@@ -259,6 +259,13 @@ Rectangle {
                         }
                     })()
 
+				SequentialAnimation on color {
+				        loops: Animation.Infinite
+				        ColorAnimation { from: "#000000"; to: "#FFFFFF"; duration: 350 }
+				        ColorAnimation { from: "#FFFFFF"; to: "#000000"; duration: 350 }
+				        running: config.boolValue("cursorBlinkAnimation")
+			    }
+
                 function generateRandomColor() {
                     var color = "#";
                     for (var i = 0; i<3; i++) {
