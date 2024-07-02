@@ -259,12 +259,14 @@ Rectangle {
                         }
                     })()
 
-				SequentialAnimation on color {
+                SequentialAnimation on color {
 				        loops: Animation.Infinite
-				        ColorAnimation { from: "#000000"; to: "#FFFFFF"; duration: 350 }
-				        ColorAnimation { from: "#FFFFFF"; to: "#000000"; duration: 350 }
+                        ColorAnimation { from: config.stringValue("passwordCursorColor") || textColor; to: "transparent"; duration: 0 }
+				        PauseAnimation { duration: 500 }
+                        ColorAnimation { from: "transparent"; to: config.stringValue("passwordCursorColor") || textColor; duration: 0 }
+				        PauseAnimation { duration: 500 }
 				        running: config.boolValue("cursorBlinkAnimation")
-			    }
+				}
 
                 function generateRandomColor() {
                     var color = "#";
