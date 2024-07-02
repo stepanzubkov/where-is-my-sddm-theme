@@ -244,38 +244,51 @@ Rectangle {
                 radius: config.intValue("passwordInputRadius") || 10
             }
             cursorDelegate: Rectangle {
+                function getCursorColor() {
+                    if (config.stringValue("passwordCursorColor").length == 7 && config.stringValue("passwordCursorColor")[0] == "#") {
+                        return config.stringValue("passwordCursorColor");
+                    } else if (config.stringValue("passwordCursorColor") == "constantRandom" ||
+                               config.stringValue("passwordCursorColor") == "random") {
+                        return generateRandomColor();
+                    } else {
+                        return textColor
+                    }
+                }
                 id: passwordInputCursor
                 width: 18/96*passwordFontSize
                 visible: config.boolValue("passwordInputCursorVisible")
                 onHeightChanged: height = passwordInput.height/2
                 anchors.verticalCenter: parent.verticalCenter
-                color: (() => {
-                        if (config.stringValue("passwordCursorColor").length == 7 && config.stringValue("passwordCursorColor")[0] == "#") {
-                            return config.stringValue("passwordCursorColor");
-                        } else if (config.stringValue("passwordCursorColor") == "constantRandom") {
-                            return generateRandomColor();
-                        } else {
-                            return textColor
-                        }
-                    })()
+                color: getCursorColor()
+                property color currentColor: color
+
+                SequentialAnimation on color {
+				        loops: Animation.Infinite
+                        PauseAnimation { duration: 100 }
+                        ColorAnimation { from: currentColor; to: "transparent"; duration: 0 }
+				        PauseAnimation { duration: 500 }
+                        ColorAnimation { from: "transparent"; to: currentColor; duration: 0 }
+				        PauseAnimation { duration: 400 }
+				        running: config.boolValue("cursorBlinkAnimation")
+				}
 
                 function generateRandomColor() {
-                    var color = "#";
+                    var color_ = "#";
                     for (var i = 0; i<3; i++) {
                         var color_number = parseInt(Math.random()*255);
                         var hex_color = color_number.toString(16);
                         if (color_number < 16) {
                             hex_color = "0" + hex_color;
                         }
-                        color += hex_color;
+                        color_ += hex_color;
                     }
-                    return color;
+                    return color_;
                 }
                 Connections {
                     target: passwordInput
                     function onTextEdited() {
                         if (config.stringValue("passwordCursorColor") == "random") {
-                            passwordInputCursor.color = generateRandomColor();
+                            passwordInputCursor.currentColor = generateRandomColor();
                         }
                     }
                 }
