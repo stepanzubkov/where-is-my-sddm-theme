@@ -118,6 +118,8 @@ Awailable settings:
 
 `blurRadius=` - Radius for background blur. A larger radius increases the blur effect.
 
+`hideCursor=` - Set to `true` to hide mouse cursor.
+
 ## Disable virtual keyboard
 
 You can disable virtual keyboard by setting line `InputMethod=qtvirtualkeyboard`
