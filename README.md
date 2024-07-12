@@ -120,6 +120,9 @@ Awailable settings:
 
 `hideCursor=` - Set to `true` to hide mouse cursor.
 
+`cursorBlinkAnimation=true` - Enable or disable cursor blink animation ("true" or "false") **This option works only in Qt6**.
+
+
 ## Disable virtual keyboard
 
 You can disable virtual keyboard by setting line `InputMethod=qtvirtualkeyboard`
