@@ -343,5 +343,14 @@ Rectangle {
         }
 
     }
+
+    Loader {
+        active: config.boolValue("hideCursor") || false
+        anchors.fill: parent
+        sourceComponent: MouseArea {
+            enabled: false
+            cursorShape: Qt.BlankCursor
+        }
+    }
 }
 
