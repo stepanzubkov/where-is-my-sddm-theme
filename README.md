@@ -139,3 +139,7 @@ Contributions are welcome! Create Issues and PRs
 [![Stargazers repo roster for @stepanzubkov/where-is-my-sddm-theme](https://reporoster.com/stars/stepanzubkov/where-is-my-sddm-theme)](https://github.com/stepanzubkov/where-is-my-sddm-theme/stargazers)
 
 [![Forkers repo roster for @stepanzubkov/where-is-my-sddm-theme](https://reporoster.com/forks/stepanzubkov/where-is-my-sddm-theme)](https://github.com/stepanzubkov/where-is-my-sddm-theme/network/members)
+
+# Support the development
+
+You can support the development of this theme and other project by donating me [here](https://www.donationalerts.com/r/stepanzubkov) :heart:
