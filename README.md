@@ -46,12 +46,15 @@ If you have created an interesting configuration that might be useful to other p
 
 ## With script
 
-This script should be run with **sudo**!
+This script installs latest theme version from **main branch**.
 
-Run `./install.sh` to install theme to sddm themes directory.
-Run `./install.sh current` to install theme and set it as current theme.
+This script should be run with **super user privileges** (sudo)!
 
-For installing `qt5` theme, use `./install_qt5.sh` script.
+To install theme for Qt6, run `sudo ./install.sh`
+
+To install theme for Qt5, run `USE_QT5=true sudo ./install.sh`
+
+To install theme as current, run `sudo ./install.sh current`
 
 ## From KDE store
 You can find product page on [pling](https://www.pling.com/p/2011322/)
@@ -133,6 +136,6 @@ to `InputMethod=` in sddm config file. SDDM config is located in `/etc/sddm.conf
 
 Contributions are welcome! Create Issues and PRs
 
-[![Stargazers repo roster for @stepanzubkov/sddm-zust](https://reporoster.com/stars/stepanzubkov/where-is-my-sddm-theme)](https://github.com/stepanzubkov/where-is-my-sddm-theme/stargazers)
+[![Stargazers repo roster for @stepanzubkov/where-is-my-sddm-theme](https://reporoster.com/stars/stepanzubkov/where-is-my-sddm-theme)](https://github.com/stepanzubkov/where-is-my-sddm-theme/stargazers)
 
 [![Forkers repo roster for @stepanzubkov/where-is-my-sddm-theme](https://reporoster.com/forks/stepanzubkov/where-is-my-sddm-theme)](https://github.com/stepanzubkov/where-is-my-sddm-theme/network/members)
