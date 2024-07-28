@@ -101,6 +101,8 @@ Awailable settings:
 
 `passwordTextColor=` - Color of password input text
 
+`passwordAllowEmpty=false` - Allow blank password (e.g., if authentication is done by another PAM module)
+
 `showSessionsByDefault=false` - Show or not sessions choose label
 
 `sessionsFontSize=24` - Font size of sessions choose label (in points).

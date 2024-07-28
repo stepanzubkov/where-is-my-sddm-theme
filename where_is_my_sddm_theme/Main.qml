@@ -232,7 +232,7 @@ Rectangle {
             passwordCharacter: config.stringValue("passwordCharacter") || "*"
             cursorVisible: config.boolValue("passwordInputCursorVisible")
             onAccepted: {
-                if (text != "") {
+                if (text != "" || config.boolValue("passwordAllowEmpty")) {
                     sddm.login(userModel.data(userModel.index(currentUsersIndex, 0), usernameRole)
  || "123test", text, currentSessionsIndex);
                 }
