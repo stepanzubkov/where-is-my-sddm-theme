@@ -1,4 +1,7 @@
 # Where is my SDDM theme?
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 *:eyes: That feeling when your SDDM theme suddenly disappeared...*
 
 The *most minimalistic* and *highly customizable* SDDM theme. Only black screen and password input field. Nothing extra, right? Even when you enter wrong password theme will show only red border around your screen. To login, just type your password and press `<Enter>` key.
@@ -145,3 +148,25 @@ Contributions are welcome! Create Issues and PRs
 # Support the development
 
 You can support the development of this theme and other project by donating me [here](https://www.donationalerts.com/r/stepanzubkov) :heart:
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/jesskay"><img src="https://avatars.githubusercontent.com/u/2358201?v=4?s=100" width="100px;" alt="Jess Kay"/><br /><sub><b>Jess Kay</b></sub></a><br /><a href="https://github.com/stepanzubkov/where-is-my-sddm-theme/commits?author=jesskay" title="Code">💻</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
