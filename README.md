@@ -21,6 +21,8 @@ Grey (`where_is_my_sddm_theme/example_configurations/grey.conf`) | Light grey (`
 ![screenshot](./screenshots/grey.png) | ![screenshot](./screenshots/lightgrey.png)
 Blue (`where_is_my_sddm_theme/example_configurations/blue.conf`) |  Tree (`where_is_my_sddm_theme/example_configurations/tree.conf`)
 ![screenshot](./screenshots/blue.png) | ![screenshot](./screenshots/tree.png)
+Catppuccin (`https://github.com/catppuccin/where-is-my-sddm-theme`) |
+![screenshot](./screenshots/catppuccin-mocha.webp) |
 
 If you have created an interesting configuration that might be useful to other people, please **share it via Pull Request!**
 
