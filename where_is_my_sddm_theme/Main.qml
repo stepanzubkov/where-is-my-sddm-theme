@@ -22,6 +22,9 @@ Rectangle {
     property string passwordFontSize: config.intValue("passwordFontSize") || 96
     property string usersFontSize: config.intValue("usersFontSize") || 48
     property string sessionsFontSize: config.intValue("sessionsFontSize") || 24
+    property string helpFontSize: config.intValue("helpFontSize") || 18
+    property string defaultFont: config.stringValue("font") || "monospace"
+    property string helpFont: config.stringValue("helpFont") || defaultFont
 
 
     function usersCycleSelectPrev() {
@@ -218,6 +221,7 @@ Rectangle {
             font.pointSize: passwordFontSize
             font.bold: true
             font.letterSpacing: 20/96*passwordFontSize
+            font.family: defaultFont
             anchors {
                 verticalCenter: parent.verticalCenter
                 horizontalCenter: parent.horizontalCenter
@@ -342,8 +346,8 @@ Rectangle {
                   "Poweroff - F11\n" +
                   "Reboot - F12"
             color: textColor
-            font.pointSize: 18
-            font.family: "monospace"
+            font.pointSize: helpFontSize
+            font.family: helpFont
             anchors {
                 top: parent.top
                 topMargin: 30
