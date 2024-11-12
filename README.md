@@ -129,6 +129,12 @@ Awailable settings:
 
 `cursorBlinkAnimation=true` - Enable or disable cursor blink animation ("true" or "false") **This option works only in Qt6**.
 
+`font=monospace` - Default font
+
+`helpFont=monospace` - Font of help message
+
+`helpFontSize=18` - Font size of help message (in points)
+
 
 ## Disable virtual keyboard
 

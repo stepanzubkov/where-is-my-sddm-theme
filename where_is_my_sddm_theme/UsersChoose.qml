@@ -7,7 +7,7 @@ Item {
     property string prevText: "<"
     property string nextText: ">"
     property int fontPointSize: usersFontSize
-    property string fontFamily: "monospace"
+    property string fontFamily: defaultFont
     signal prevClicked()
     signal nextClicked()
     Text {
@@ -46,7 +46,7 @@ Item {
         text: root.nextText
         color: textColor
         font.pointSize: root.fontPointSize
-        font.family: "monospace"
+        font.family: root.fontFamily
         anchors {
             right: parent.right
             verticalCenter: parent.verticalCenter
