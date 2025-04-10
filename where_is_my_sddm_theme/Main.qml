@@ -190,7 +190,8 @@ Rectangle {
                 id: backgroundBorder
                 anchors.fill: parent
                 z: 4
-                border.color: "#ff3117"
+                radius: config.stringValue("wrongPasswordBorderRadius") || 0
+                border.color: config.stringValue("wrongPasswordBorderColor") || "#ff3117"
                 border.width: 0
                 color: "transparent"
                 Behavior on border.width {
@@ -246,6 +247,8 @@ Rectangle {
                 anchors.fill: parent
                 color: config.stringValue("passwordInputBackground") || "transparent"
                 radius: config.intValue("passwordInputRadius") || 10
+                border.width: config.intValue("passwordInputBorderWidth") || 0
+                border.color: config.stringValue("passwordInputBorderColor") || "#ffffff"
             }
             cursorDelegate: Rectangle {
                 function getCursorColor() {

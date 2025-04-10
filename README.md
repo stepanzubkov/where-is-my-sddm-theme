@@ -1,28 +1,34 @@
 # Where is my SDDM theme?
+
 *:eyes: That feeling when your SDDM theme suddenly disappeared...*
 
 The *most minimalistic* and *highly customizable* SDDM theme. Only black screen and password input field. Nothing extra, right? Even when you enter wrong password theme will show only red border around your screen. To login, just type your password and press `<Enter>` key.
 
 # Examples of customization
+
 To install one of these configs, run inside theme directory:
+
 ```shell
 cp <path to config> theme.conf
 ```
+
 If config based on image background, also copy image. For example:
+
 ```shell
 cp example_configurations/tree.conf theme.conf
 cp example_configurations/tree.png tree.png
 ```
+
 | | |
----|---
-Classic (`where_is_my_sddm_theme/theme.conf`) | Classic, no cursor (`where_is_my_sddm_theme/example_configurations/classic_nocursor.conf`)
-![screenshot](./where_is_my_sddm_theme/screenshot.png) | ![screenshot](./screenshots/classic_nocursor.png)
-Grey (`where_is_my_sddm_theme/example_configurations/grey.conf`) | Light grey (`where_is_my_sddm_theme/example_configurations/lightgrey.conf`)
-![screenshot](./screenshots/grey.png) | ![screenshot](./screenshots/lightgrey.png)
-Blue (`where_is_my_sddm_theme/example_configurations/blue.conf`) |  Tree (`where_is_my_sddm_theme/example_configurations/tree.conf`)
-![screenshot](./screenshots/blue.png) | ![screenshot](./screenshots/tree.png)
-Catppuccin (`https://github.com/catppuccin/where-is-my-sddm-theme`) |
-![screenshot](./screenshots/catppuccin-mocha.webp) |
+| --- |--- |
+| Classic (`where_is_my_sddm_theme/theme.conf`) | Classic, no cursor (`where_is_my_sddm_theme/example_configurations/classic_nocursor.conf`) |
+| ![screenshot](./where_is_my_sddm_theme/screenshot.png) | ![screenshot](./screenshots/classic_nocursor.png) |
+| Grey (`where_is_my_sddm_theme/example_configurations/grey.conf`) | Light grey (`where_is_my_sddm_theme/example_configurations/lightgrey.conf`) |
+| ![screenshot](./screenshots/grey.png) | ![screenshot](./screenshots/lightgrey.png) |
+| Blue (`where_is_my_sddm_theme/example_configurations/blue.conf`) |  Tree (`where_is_my_sddm_theme/example_configurations/tree.conf`) |
+| ![screenshot](./screenshots/blue.png) | ![screenshot](./screenshots/tree.png) |
+| Catppuccin (`https://github.com/catppuccin/where-is-my-sddm-theme`) | ![screenshot](./screenshots/catppuccin-mocha.webp) |
+| Rose-Pine Moon (`where_is_my_sddm_theme/example_configurations/rose-pine-moon.conf`) | ![screenshot](./screenshots/rose-pine-moon.png) |
 
 If you have created an interesting configuration that might be useful to other people, please **share it via Pull Request!**
 
@@ -59,8 +65,11 @@ To install theme for Qt5, run `USE_QT5=true sudo ./install.sh`
 To install theme as current, run `sudo ./install.sh current`
 
 ## From KDE store
+
 You can find product page on [pling](https://www.pling.com/p/2011322/)
+
 ### On KDE
+
 1. Open System settings
 2. Choose Start and finish/Log in (SDDM)
 3. Click on "...", then "Download SDDM theme..."
@@ -69,6 +78,7 @@ You can find product page on [pling](https://www.pling.com/p/2011322/)
 6. Activate
 
 ### On other DEs/WMs
+
 1. Open [link](https://www.pling.com/p/2011322/)
 2. Click on "Install"
 3. Unzip downloaded archive
@@ -77,10 +87,12 @@ You can find product page on [pling](https://www.pling.com/p/2011322/)
 6. Change line `Current=...` to `Current=where_is_my_sddm_theme`
 
 ## From source
+
 1. Clone repo
 2. [On other DEs/WMs](#on-other-deswms) (steps 4-6)
 
 # Configuration
+
 In `theme.conf` file you can find theme configuration.
 
 Awailable settings:
@@ -134,7 +146,6 @@ Awailable settings:
 `helpFont=monospace` - Font of help message
 
 `helpFontSize=18` - Font size of help message (in points)
-
 
 ## Disable virtual keyboard
 
