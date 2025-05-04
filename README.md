@@ -61,7 +61,7 @@ This script should be run with **super user privileges** (sudo)!
 
 To install theme for Qt6, run `sudo ./install.sh`
 
-To install theme for Qt5, run `USE_QT5=true sudo ./install.sh`
+To install theme for Qt5, run `sudo USE_QT5=true ./install.sh`
 
 To install theme as current, run `sudo ./install.sh current`
 
