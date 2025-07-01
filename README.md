@@ -157,7 +157,7 @@ to `InputMethod=` in sddm config file. SDDM config is located in `/etc/sddm.conf
 
 # Contributions
 
-Contributions are welcome! Create Issues and PRs
+Contributions are welcome! Create Issues and PRs. See `CONTRIBUTE.md`.
 
 [![Stargazers repo roster for @stepanzubkov/where-is-my-sddm-theme](https://reporoster.com/stars/stepanzubkov/where-is-my-sddm-theme)](https://github.com/stepanzubkov/where-is-my-sddm-theme/stargazers)
 
