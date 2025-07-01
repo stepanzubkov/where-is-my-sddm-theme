@@ -27,9 +27,10 @@ cp example_configurations/tree.png tree.png
 | ![screenshot](./screenshots/grey.png) | ![screenshot](./screenshots/lightgrey.png) |
 | Blue (`where_is_my_sddm_theme/example_configurations/blue.conf`) |  Tree (`where_is_my_sddm_theme/example_configurations/tree.conf`) |
 | ![screenshot](./screenshots/blue.png) | ![screenshot](./screenshots/tree.png) |
-| Catppuccin (`https://github.com/catppuccin/where-is-my-sddm-theme`) | ![screenshot](./screenshots/catppuccin-mocha.webp) |
-| Rose-Pine Moon (`where_is_my_sddm_theme/example_configurations/rose-pine-moon.conf`) | ![screenshot](./screenshots/rose-pine-moon.png) |
-| Nord (`where_is_my_sddm_theme/example_configurations/nord.conf`) | ![screenshot](./screenshots/nord.png) |
+| Catppuccin (`https://github.com/catppuccin/where-is-my-sddm-theme`) | Rose-Pine Moon (`where_is_my_sddm_theme/example_configurations/rose-pine-moon.conf`) |
+| ![screenshot](./screenshots/catppuccin-mocha.webp) | ![screenshot](./screenshots/rose-pine-moon.png) |
+| Nord (`where_is_my_sddm_theme/example_configurations/nord.conf`) | |
+| ![screenshot](./screenshots/nord.png) | |
 
 If you have created an interesting configuration that might be useful to other people, please **share it via Pull Request!**
 
