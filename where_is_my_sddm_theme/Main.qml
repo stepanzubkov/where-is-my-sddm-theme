@@ -55,6 +55,9 @@ Rectangle {
             case "tile":
                 return Image.Tile;
 
+            case "pad":
+                return Image.Pad
+
             default:
                 return Image.Pad;
         }

@@ -130,9 +130,9 @@ Awailable settings:
 
 `background=` - Path to background image
 
-`backgroundFill=#000000` - Or use just one color
+`backgroundFill=#000000` - Background solid color, if you don't use background image
 
-`backgroundFillMode=aspect` - Qt fill mode for background image
+`backgroundFillMode=aspect` - Qt fill mode for background image. Must be one of: `aspect`, `fill`, `tile`, `pad`
 
 `basicTextColor=#ffffff` - Default text color for all labels
 

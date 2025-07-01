@@ -43,7 +43,7 @@ Rectangle {
     }
 
     function bgFillMode() {
-        switch(config.backgroundMode)
+        switch(config.stringValue("backgroundFillMode"))
         {
             case "aspect":
                 return Image.PreserveAspectCrop;
@@ -53,6 +53,9 @@ Rectangle {
 
             case "tile":
                 return Image.Tile;
+
+            case "pad":
+                return Image.Pad;
 
             default:
                 return Image.Pad;
